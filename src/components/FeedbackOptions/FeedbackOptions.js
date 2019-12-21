@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
 import styles from './FeedbackOptions.module.css';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
@@ -8,7 +7,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     <ul className={styles.optionsList}>
       {Object.keys(options).map(option => (
         <button
-          key={shortid.generate()}
+          key={option}
           name={option}
           className={styles.btn}
           type="button"
@@ -22,11 +21,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.shape({
-    good: PropTypes.number,
-    neutral: PropTypes.number,
-    bad: PropTypes.number,
-  }).isRequired,
+  options: PropTypes.shape({}).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
 
